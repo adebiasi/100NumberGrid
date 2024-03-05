@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="p5.min.js"></script>
+    <script src="sketch.js" type="text/javascript"></script>
+</head>
+<body>
+# rows: <input id="rows" type="range" min="5" max="10" value="5" oninput="updateComponent('rows','num_rows')">
+<span id="num_rows">5</span><br/>
+# cols: <input id="cols" type="range" min="5" max="10" value="5" oninput="updateComponent('cols','num_cols')">
+<span id="num_cols">5</span><br/>
+# slow down process (in seconds): <input id="wait" type="range" min="0" max="10" value="0" oninput="updateComponent('wait','num_seconds')">
+<span id="num_seconds">0</span><br/>
+<p><button id="reset">Reset</button></p>
+<p><button id="run">Run brute-force solver</button> VERY SLOW: It tries all the possible moves</p>
+<p><button id="run_greedy">Run greedy solver</button> NOT PERFECT BUT VERY FAST: Each step, it chooses the FIRST move with LESS available options (i.e. less number of moves)</p>
+<p><button id="run_greedy2">Run greedy solver2</button> QUITE SLOW: Each step, it tries ALL the moves with LESS available options.</p>
+</body>
+<script>
+        function updateComponent(slider, span) {
+        var slider = document.getElementById(slider);
+        var num_agents = document.getElementById(span);
+        num_agents.textContent = slider.value;
+    }
+</script>
+</html>
